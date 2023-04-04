@@ -546,11 +546,8 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
   List<BoxShadow>? _getBoxShadowFromIndex(int index) {
     if (_selectedIndex == index) {
       return _pinTheme.activeBoxShadows;
-    } else if (_selectedIndex > index) {
-      return _pinTheme.inActiveBoxShadows;
-    }
-
-    return [];
+    } 
+    return _pinTheme.inActiveBoxShadows;
   }
 
   Widget _renderPinField({
