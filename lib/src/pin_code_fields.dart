@@ -517,7 +517,10 @@ class _PinCodeTextFieldState extends State<PinCodeTextField> with TickerProvider
   }
 
   // selects the right color for the field
-  Color _getColorFromIndex(int index) {
+  Color _borderColor(int index) {
+    if (_pinTheme.borderColor != null) {
+      return _pinTheme.borderColor!;
+    }
     if (!widget.enabled) {
       return _pinTheme.disabledColor;
     }
@@ -845,12 +848,12 @@ class _PinCodeTextFieldState extends State<PinCodeTextField> with TickerProvider
                 border: _pinTheme.shape == PinCodeFieldShape.underline
                     ? Border(
                         bottom: BorderSide(
-                          color: _getColorFromIndex(i),
+                          color: _borderColor(i),
                           width: _pinTheme.borderWidth,
                         ),
                       )
                     : Border.all(
-                        color: _getColorFromIndex(i),
+                        color: _borderColor(i),
                         width: _pinTheme.borderWidth,
                       ),
               ),
